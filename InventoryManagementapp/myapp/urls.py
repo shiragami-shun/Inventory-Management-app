@@ -1,5 +1,7 @@
 from django.urls import path, include
+from myapp import views
 
 urlpatterns = [
-    path('sales/', include('myapp.sales.urls')),
+    path('sales/', views.dashboard, name='dashboard'),
+    path('', views.index, name='index')
 ]
