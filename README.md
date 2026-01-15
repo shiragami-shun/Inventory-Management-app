@@ -53,3 +53,6 @@ IMAP
 ## 実現可能性/懸念事項
 
 レジ連携、仕入れアシスト、ピーク時の可視化
+
+サーバー起動
+python manage.py runserver

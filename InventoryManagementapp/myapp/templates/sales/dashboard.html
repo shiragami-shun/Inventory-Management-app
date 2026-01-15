@@ -1,0 +1,172 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>売上管理ダッシュボード</title>
+  <link rel="stylesheet" href="{% static 'sales/style.css' %}">
+  <link rel="stylesheet" href="{% static 'sales/style.css' %}">
+
+</head>
+<body>
+
+<header class="header">
+  <h1>売上管理</h1>
+</header>
+
+<main class="container">
+
+  <!-- サマリー -->
+  <section class="summary">
+    <div class="card">
+      <h2>総売上</h2>
+      <p class="amount">¥ {{ total_sales|intcomma }}</p>
+    </div>
+  </section>
+
+ <!-- 売上データテーブル -->
+  <!-- 売上データ -->
+<section class="section">
+    <table>
+      <tbody>
+        {% for sale in sales %}
+        <tr>
+          <td>{{ sale.date }}</td>
+          <td>{{ sale.product_name }}</td>
+          <td>{{ sale.quantity }}</td>
+          <td>¥ {{ sale.unit_price|intcomma }}</td>
+          <td>¥ {{ sale.total_amount|intcomma }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  
+  <!-- 商品別売上 円グラフ -->
+  <section class="section">
+    <h2>商品別売上</h2>
+    <div class="chart-card">
+      <canvas id="productSalesChart"></canvas>
+      {{ product_sales|json_script:"product-sales-data" }}
+    </div>
+  </section>
+  
+
+  <!-- 日別売上 -->
+  <section class="section">
+    <h2>日別売上</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>日付</th>
+          <th>売上金額</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for date, amount in daily_sales.items %}
+        <tr>
+          <td>{{ date }}</td>
+          <td>¥ {{ amount|intcomma }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 商品別売上 -->
+  <section class="section">
+    <h2>商品別売上</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>売上金額</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for name, amount in product_sales.items %}
+        <tr>
+          <td>{{ name }}</td>
+          <td>¥ {{ amount|intcomma }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 月別売上 -->
+  <section class="section">
+    <h2>月別売上</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>年月</th>
+          <th>売上金額</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for month, amount in monthly_sales.items %}
+        <tr>
+          <td>{{ month }}</td>
+          <td>¥ {{ amount|intcomma }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+    
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<script src="{% static 'sales/sales.js' %}"></script>
+</body>
+</html>
+<!-- {% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>売上管理</title>
+</head>
+<body>
+
+<h1>売上入力</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">登録</button>
+</form>
+
+<hr>
+
+<h2>総売上</h2>
+<p>¥ {{ total_sales|intcomma }}</p>
+
+<h2>日別売上</h2>
+<ul>
+  {% for d, a in daily_sales.items %}
+    <li>{{ d }}：¥ {{ a|intcomma }}</li>
+  {% endfor %}
+</ul>
+
+<h2>商品別売上</h2>
+<ul>
+  {% for p, a in product_sales.items %}
+    <li>{{ p }}：¥ {{ a|intcomma }}</li>
+  {% endfor %}
+</ul>
+
+<h2>月別売上</h2>
+<ul>
+  {% for m, a in monthly_sales.items %}
+    <li>{{ m }}：¥ {{ a|intcomma }}</li>
+  {% endfor %}
+</ul>
+
+</body>
+</html> -->
