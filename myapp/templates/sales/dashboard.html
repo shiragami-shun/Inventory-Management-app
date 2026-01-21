@@ -7,13 +7,15 @@
   <meta charset="UTF-8">
   <title>売上管理ダッシュボード</title>
   <link rel="stylesheet" href="{% static 'sales/style.css' %}">
-  <link rel="stylesheet" href="{% static 'sales/style.css' %}">
 
 </head>
 <body>
 
 <header class="header">
   <h1>売上管理</h1>
+  <div class="home-link">
+    <a href="{% url 'index' %}">ホームに戻る</a>
+  </div>
 </header>
 
 <main class="container">
