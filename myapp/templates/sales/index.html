@@ -3,62 +3,63 @@
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>管理ホーム</title>
   <link rel="stylesheet" href="{% static 'sales/home.css' %}">
 </head>
+
 <body>
 
-<header class="header">
-    <h1>売上管理</h1>
-    <!-- ホームに戻るボタン -->
-    <a href="{% url 'index' %}" class="back-home">ホームに戻る</a>
-</header>
+  <header class="header">
+    <h1>管理ホーム</h1>
+  </header>
 
-<main class="container">
+  <main class="container">
 
-  <!-- ===== サマリー ===== -->
-  <section class="summary">
-    <div class="summary-card">
-      <h3>本日の売上</h3>
-      <p class="amount">
-        ¥ {{ daily_sales|default:0|intcomma }}
-      </p>
-    </div>
+    <!-- ===== サマリー ===== -->
+    <section class="summary">
+      <div class="summary-card">
+        <h3>本日の売上</h3>
+        <p class="amount">
+          ¥ {{ daily_sales|default:0|intcomma }}
+        </p>
+      </div>
 
-    <div class="summary-card">
-      <h3>今月の売上</h3>
-      <p class="amount">
-        ¥ {{ monthly_sales|default:0|intcomma }}
-      </p>
-      
-    </div>
+      <div class="summary-card">
+        <h3>今月の売上</h3>
+        <p class="amount">
+          ¥ {{ monthly_sales|default:0|intcomma }}
+        </p>
 
-    <div class="summary-card">
-      <h3>在庫数</h3>
-      <p class="amount">{{ stock_count }}</p>
-    </div>
-  </section>
+      </div>
 
-  <!-- ===== ナビカード ===== -->
-  <section class="nav-section">
+      <div class="summary-card">
+        <h3>在庫数</h3>
+        <p class="amount">{{ stock_count }}</p>
+      </div>
+    </section>
 
-    <a href="{% url 'dashboard' %}" class="nav-card">
-      <h2>売上管理</h2>
-      <p>売上入力・日別 / 商品別集計を確認</p>
-      <span class="nav-link">売上管理へ →</span>
-    </a>
+    <!-- ===== ナビカード ===== -->
+    <section class="nav-section">
 
-    <a class="nav-card">
-      <h2>在庫管理</h2>
-      <p>在庫数・入出庫・在庫アラート確認</p>
-      <span class="nav-link">在庫管理へ →</span>
-    </a>
+      <a href="{% url 'dashboard' %}" class="nav-card">
+        <h2>売上管理</h2>
+        <p>売上入力・日別 / 商品別集計を確認</p>
+        <span class="nav-link">売上管理へ →</span>
+      </a>
 
-  </section>
+      <a class="nav-card">
+        <h2>在庫管理</h2>
+        <p>在庫数・入出庫・在庫アラート確認</p>
+        <span class="nav-link">在庫管理へ →</span>
+      </a>
 
-</main>
+    </section>
+
+  </main>
 
 </body>
+
 </html>
