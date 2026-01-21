@@ -5,11 +5,39 @@ body {
     color: #333;
   }
   
+  /* .header {
+    background: #1f2937;
+    color: white;
+    padding: 16px 24px;
+  } */
+
   .header {
     background: #1f2937;
     color: white;
     padding: 16px 24px;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
+  
+  /* 戻るボタン */
+  .back-home {
+    text-decoration: none;
+    color: #1f2937;
+    background: #ffffff;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .back-home:hover {
+    background: #e5e7eb;
+    transform: translateY(-1px);
+  }
+  
   
   .container {
     max-width: 960px;
@@ -85,4 +113,10 @@ body {
     max-width: 360px;
     aspect-ratio: 1 / 1;   /* ← 正円固定 */
   }
+
+/* 
+  .back-home {
+    display: inline-block;
+    margin: 16px 24px;  
+  } */
   
