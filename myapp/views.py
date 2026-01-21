@@ -11,7 +11,7 @@ def dashboard(request):
     manager.add_sale(Sale("2025-12-01", "P001", "コーヒー", 400, 2))
     manager.add_sale(Sale("2025-12-01", "P002", "サンドイッチ", 600, 2))
     manager.add_sale(Sale("2025-12-02", "P001", "コーヒー", 400, 2))
-    manager.add_sale(Sale("2025-12-02", "P003", "ケーキ", 1500, 1))
+    manager.add_sale(Sale("2025-12-02", "P003", "ケーキ", 1500, 10))
     manager.add_sale(Sale("2025-01-15", "P002", "サンドイッチ", 600, 20))
     manager.add_sale(Sale("2026-01-15", "P004", "紅茶", 400, 10))
 
@@ -30,7 +30,7 @@ def index(request):
     manager.add_sale(Sale("2025-12-01", "P001", "コーヒー", 400, 2))
     manager.add_sale(Sale("2025-12-01", "P002", "サンドイッチ", 600, 2))
     manager.add_sale(Sale("2025-12-02", "P001", "コーヒー", 400, 2))
-    manager.add_sale(Sale("2025-12-02", "P003", "ケーキ", 1500, 1))
+    manager.add_sale(Sale("2025-12-02", "P003", "ケーキ", 1500, 10))
     manager.add_sale(Sale("2025-01-14", "P002", "サンドイッチ", 600, 20))
     manager.add_sale(Sale("2026-01-15", "P004", "紅茶", 400, 10))
 
