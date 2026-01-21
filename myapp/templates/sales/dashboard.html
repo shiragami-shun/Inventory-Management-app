@@ -8,15 +8,65 @@
   <meta charset="UTF-8">
   <title>売上管理ダッシュボード</title>
   <link rel="stylesheet" href="{% static 'sales/style.css' %}">
+<<<<<<< HEAD:InventoryManagementapp/myapp/templates/sales/dashboard.html
+=======
+
+>>>>>>> 44765269f407c9f6ca5d4b7018d03b261cceb74b:myapp/templates/sales/dashboard.html
 </head>
 
 <body>
 
+<<<<<<< HEAD:InventoryManagementapp/myapp/templates/sales/dashboard.html
   <header class="header">
     <h1>売上管理</h1>
     <!-- ホームに戻るボタン -->
     <a href="{% url 'index' %}" class="back-home">ホームに戻る</a>
   </header>
+=======
+<header class="header">
+  <h1>売上管理</h1>
+  <div class="home-link">
+    <a href="{% url 'index' %}">ホームに戻る</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- サマリー -->
+  <section class="summary">
+    <div class="card">
+      <h2>総売上</h2>
+      <p class="amount">¥ {{ total_sales|intcomma }}</p>
+    </div>
+  </section>
+
+ <!-- 売上データテーブル -->
+  <!-- 売上データ -->
+<section class="section">
+    <table>
+      <tbody>
+        {% for sale in sales %}
+        <tr>
+          <td>{{ sale.date }}</td>
+          <td>{{ sale.product_name }}</td>
+          <td>{{ sale.quantity }}</td>
+          <td>¥ {{ sale.unit_price|intcomma }}</td>
+          <td>¥ {{ sale.total_amount|intcomma }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  
+  <!-- 商品別売上 円グラフ -->
+  <section class="section">
+    <h2>商品別売上</h2>
+    <div class="chart-card">
+      <canvas id="productSalesChart"></canvas>
+      {{ product_sales|json_script:"product-sales-data" }}
+    </div>
+  </section>
+>>>>>>> 44765269f407c9f6ca5d4b7018d03b261cceb74b:myapp/templates/sales/dashboard.html
   
 
 

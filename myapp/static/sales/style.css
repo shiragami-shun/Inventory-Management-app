@@ -20,6 +20,12 @@ body {
     justify-content: space-between;
     align-items: center;
   }
+
+  .header .home-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+  }
   
   /* 戻るボタン */
   .back-home {
